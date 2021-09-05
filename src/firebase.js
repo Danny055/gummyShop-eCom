@@ -3,7 +3,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDKx8EqjOe1n3qKcDwvgqB9RaCkO-2YW0I",
+   //api key missing
     authDomain: "cbd-ecom.firebaseapp.com",
     projectId: "cbd-ecom",
     storageBucket: "cbd-ecom.appspot.com",
