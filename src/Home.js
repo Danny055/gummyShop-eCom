@@ -9,9 +9,12 @@ function Home() {
         <div className="home__container">
             <img
                 className="home__image"
-                src="https://wallpaperaccess.com/full/428865.jpg"
+                src="https://image.freepik.com/free-vector/geometric-shapes-background-eighties-style_23-2148249866.jpg"
                 alt=""
             />
+            <div className="home__carusel">
+                  {/*CARUSEL/AD IMAGES*/}
+            </div>
                  <div className="home__row">
                 <Product 
                 id = "0000000001"

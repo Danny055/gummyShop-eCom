@@ -1,12 +1,15 @@
 .header {
   height: 60px;
+  width: 100%;
   display: flex;
   align-items: center;
   background-color: #131921;
   position: sticky;
   top: 0;
-  left: auto;
+
   z-index: 100;
+  max-width: 210%;
+  min-width: 678px;
 }
 .header__logo {
   width: 220px;

@@ -6,18 +6,23 @@ import CheckoutProduct from "./CheckoutProduct";
 
 function Checkout() {
     const [ {basket, user}, dispatch] = useStateValue();
-
+ 
     return (
         <div className="checkout">
-          
+           
+            <img
+                className="home__image"
+                src="https://image.freepik.com/free-vector/geometric-shapes-background-eighties-style_23-2148249866.jpg"
+                alt=""
+            />
             <div className= "checkout__left">
-            <h2 className="checkout__base">
-                *Optional Image*</h2>
-               {/* <img className='checkout__ad' src = ""> */}
-                <div>
-                <h3>Hello, {user?.email}</h3>
+            {/*CARUSEL/AD IMAGES*/}
+            
+            <div>
                 <h2 className="checkout__title">
                 Yours Shoping Basket</h2>
+                
+
                 {basket.map(item =>(
                     <CheckoutProduct
                     id={item.id}
@@ -26,7 +31,6 @@ function Checkout() {
                     price={item.price}
                     />
                 ))}
-
                 </div> 
             </div>
             
@@ -36,8 +40,8 @@ function Checkout() {
                
                 
             </div>
-          
-        </div>
+         </div>
+      
     );
 }
 

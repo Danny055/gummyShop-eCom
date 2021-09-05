@@ -21,13 +21,15 @@ function Payment() {
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
     const [ clientSecret, setClientSecret ] = useState(true);
-
+    const amount = getBasketTotal(basket) * 100;
+    const newamount= Math.round(amount);
     useEffect(() => {
         const getClientSecret = async () => {
             const response = await axios({
                 method: 'post',
                 
-                url:`/payments/create?total=${getBasketTotal(basket) * 100}`
+                url:`/payments/create?total=${newamount}`,
+
             })
             setClientSecret(response.data.clientSecret)
         }
@@ -131,7 +133,7 @@ function Payment() {
                             )}
                             decimalScale={2}
                             value={getBasketTotal(basket)}
-                            dispayType={"text"}
+                            displayType={"text"}
                             thousandSeparator={true}
                             prefix={"$"}
                         />

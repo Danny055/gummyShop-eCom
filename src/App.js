@@ -13,6 +13,45 @@ import Payment from './Payment';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 
+const viewportContext = React.createContext({});
+
+const ViewportProvider = ({ children }) => {
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const [height, setHeight] = React.useState(window.innerHeight);
+  const handleWindowResize = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
+
+  return (
+    <viewportContext.Provider value={{ width, height }}>
+      {children}
+    </viewportContext.Provider>
+  );
+};
+
+const useViewport = () => {
+  const { width, height } = React.useContext(viewportContext);
+  return { width, height };
+};
+
+const MobileComponent = () => <p>"Hmmm... Why is your screen so small?"</p>;
+const DesktopComponent = () => <p>"Wow, your screen is big!"</p>;
+
+const MyComponent = () => {
+  const { width } = useViewport();
+  const breakpoint = 620;
+
+  return width < breakpoint ? <MobileComponent /> : <DesktopComponent />;
+};
+
+
+
 const promise = loadStripe('pk_test_51JTyGXARMYnaIVvTDG9bridUzBbk6wM9wEL4zs6HBnbvqzPW2TD1pkuZQAIa1nhnj4Vr52GHRL1Y9m8ODleDmc6x00Yb0rhaHN');
 
 function App() {
@@ -42,6 +81,7 @@ function App() {
 
 
   return (
+    <ViewportProvider>
     <Router>
     <div className="app">
     
@@ -74,6 +114,7 @@ function App() {
       </Switch>
      </div>
     </Router>
+    </ViewportProvider>
   );
 }
 

@@ -26,7 +26,7 @@ function Order({ order }) {
                 )}
                 decimalScale={2}
                 value={order.data.amount / 100}
-                dispayType={"text"}
+                displayType={"text"}
                 thousandSeparator={true}
                 prefix={"$"}
             />
