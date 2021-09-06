@@ -1,5 +1,14 @@
 .payment {
   background-color: white;
+  padding: 40px;
+  min-width: 778px;
+  margin: 20px 40px;
+  border: 1px solid lightgray;
+  background-color: white;
+  position: relative;
+}
+.payment__return {
+  text-align: center;
 }
 .payment__container > h1 {
   text-align: center;

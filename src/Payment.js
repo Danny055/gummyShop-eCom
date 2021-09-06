@@ -80,13 +80,11 @@ function Payment() {
     return (
         <div className='payment'>
             <div className='payment__container'>
-                
-                <h1>
-                    Checkout(
-                        <Link to="./checkout">{basket.length} items
-                        </Link>)
-                </h1>                
-                
+            <img
+                className="home__image"
+                src="https://image.freepik.com/free-vector/geometric-shapes-background-eighties-style_23-2148249866.jpg"
+                alt=""
+            />
                 {/*payment section Deliver Address */}
                 <div className='payment__section'>
                     <div className='payment__title'>
@@ -98,6 +96,10 @@ function Payment() {
                         <p>Los Angeles, CA</p>
                     </div>
                 </div>
+                <h2 className="payment__return">Return to Basket (
+                        <Link to="./checkout">{basket.length} items
+                        </Link>)
+                </h2>
                 {/*payment section Review Items*/}
                 <div className='payment__section'>
                     <div className='payment__title'>
@@ -110,6 +112,7 @@ function Payment() {
                              title={item.title}
                              image={item.image}
                              price={item.price}
+                             hideButton
                          />
                         ))}
                     </div>
@@ -141,6 +144,7 @@ function Payment() {
                             <span>{processing ? <p>Processing</p>:
                             "Buy Now"}</span>
                         </button>
+                        
                         </div>
                                 {/*Errors*/}
                                 {error && <div>{error}</div>}

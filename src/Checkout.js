@@ -20,7 +20,7 @@ function Checkout() {
             
             <div>
                 <h2 className="checkout__title">
-                Yours Shoping Basket</h2>
+                Your Shoping Basket</h2>
                 
 
                 {basket.map(item =>(

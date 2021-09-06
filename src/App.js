@@ -2,8 +2,7 @@ import React , { useEffect } from 'react';
 import Header from'./Header';
 import './App.css';
 import Home from './Home';
-import {BrowserRouter as Router, Switch, Route}
-from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Checkout from './Checkout';
 import Login from './Login';
 import Orders from './Orders';
@@ -12,6 +11,7 @@ import { useStateValue } from './StateProvider';
 import Payment from './Payment';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
+import Slider from './Slider';
 
 const viewportContext = React.createContext({});
 
@@ -88,6 +88,7 @@ function App() {
       <Switch>
       <Route path="/orders">
         <Header />
+        <Slider />
         <Orders />
         </Route>
        
@@ -97,6 +98,7 @@ function App() {
        
         <Route path="/checkout">
           <Header />
+          <Slider />
           <Checkout />
         </Route>
 
@@ -109,6 +111,7 @@ function App() {
 
         <Route path="/">
           <Header />
+          <Slider />
           <Home />
         </Route>
       </Switch>
